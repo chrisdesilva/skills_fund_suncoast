@@ -3,5 +3,9 @@
   to = "/?utm_source=school&utm_medium=printedskfbrochure&utm_campaign=studentbrochure"
 
 [[redirects]]
+  from = "/2019"
+  to = "/?utm_source=school&utm_medium=printedskfbrochure&utm_campaign=studentbrochure"
+
+[[redirects]]
   from = "/accepted"
   to = "/"
