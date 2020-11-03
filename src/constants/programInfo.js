@@ -116,7 +116,7 @@ export const faq = {
   immediateRepayment: false, // true if immediate repayment is an option
   multipleLoanLengths: true, // true if 36 and 60 month options are both available
   multipleLoanTypes: false, // true if both IR and IO are available
-  multiPrograms: false, // only true if there are multiple programs
+  multiPrograms: true, // only true if there are multiple programs
   onlinePrograms: false, // true if at least one program is remote/online
   schoolHQState: "WA",
   origFee: 0.05,
@@ -133,7 +133,13 @@ export const faq = {
   // max loan amounts by program for faq1
   loanRange: [
     {
-      programName: "the Web Development program",
+      programName: "the Web Development (Immersive) program",
+      maxAmount: "$13,900",
+      col: true,
+      colAmount: "$3,500",
+    },
+    {
+      programName: "the Web Development (Night Shift) program",
       maxAmount: "$13,900",
       col: true,
       colAmount: "$3,500",
@@ -195,8 +201,76 @@ export const moreThanSixPrograms = false // set to true if there are 7 or more p
 export const programLoanInfo = [
   // update with program names and corresponding loan URLs with market segment code from Master Loan Parameters
   {
-    name: "Web Development",
+    name: "Web Development (Immersive)",
     url: "https://my.skills.fund/application?lenderCode=SKSC18",
+    loanInfo: {
+      // match loanInfo in first metro below
+      maxLoanAmt: 17400,
+      loanTerm36: true,
+      loanTerm60: true,
+      "Interest Only": {
+        // interest-only
+        k: 6,
+        apr36: 11.59,
+        apr60: 12.84,
+      },
+      "Immediate Repayment": null, // immediate repayment
+    },
+    defaultLoanType: "Interest Only", // leave at 0 for interest-only, set to 1 for immediate repayment
+    showMetros: false, // true if there are multiple metros with different tuition amounts for the same program
+    showLoanTypes: false, // true if both IR and IO are available
+    loanTypes: ["Interest Only"],
+    locations: ["Metro 1", "Metro 2", "Metro 3"],
+    metros: [
+      // list in same order as locations array above
+      {
+        location: "Metro 1",
+        loanInfo: {
+          // // match loanInfo to Program 1 above
+          maxLoanAmt: 17400,
+          loanTerm36: true,
+          loanTerm60: true,
+          "Interest Only": {
+            k: 6,
+            apr36: 11.59,
+            apr60: 12.84,
+          },
+          "Immediate Repayment": null,
+        },
+      },
+      {
+        location: "Metro 2",
+        loanInfo: {
+          maxLoanAmt: 15545,
+          loanTerm36: true,
+          loanTerm60: true,
+          "Interest Only": {
+            k: 6,
+            apr36: 11.59,
+            apr60: 12.84,
+          },
+          "Immediate Repayment": null,
+        },
+      },
+      {
+        location: "Metro 3",
+        loanInfo: {
+          maxLoanAmt: 20545,
+          loanTerm36: true,
+          loanTerm60: true,
+          "Interest Only": {
+            k: 6,
+            apr36: 11.59,
+            apr60: 12.84,
+          },
+          "Immediate Repayment": null,
+        },
+      },
+    ],
+  },
+  {
+    name: "Web Development (Night Shift)",
+    url: "https://my.skills.fund/application?lenderCode=SKSCNS20",
     loanInfo: {
       // match loanInfo in first metro below
       maxLoanAmt: 17400,
